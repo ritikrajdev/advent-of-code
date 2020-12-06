@@ -7,14 +7,14 @@
 
 class Solution {
 public:
-    const int sumTo = 2020;
-    std::vector<int> numbers;
-    int numbers_length, numFactors;
+    const long long sumTo = 2020;
+    std::vector<long long> numbers;
+    long long numbers_length, numFactors;
 
 
-    int solve (int startFrom = 0, int previousSum = 0, int depthCount = 1)
+    long long solve (long long startFrom = 0, long long previousSum = 0, long long depthCount = 1)
     { 
-        for (int i = startFrom ; i < numbers_length ; i++)
+        for (long long i = startFrom ; i < numbers_length ; i++)
         {
             if (depthCount == numFactors)
             {
@@ -26,7 +26,7 @@ public:
 
             else if (depthCount < numFactors)
             {
-                int productOfNumbers = solve(startFrom + 1, previousSum + numbers.at(i), depthCount+1);
+                long long productOfNumbers = solve(startFrom + 1, previousSum + numbers.at(i), depthCount+1);
 
                 if (productOfNumbers > 0){
                     productOfNumbers *= numbers.at(i);
@@ -44,7 +44,7 @@ int main()
 {
     Solution solution;
     
-    std::cout << "Enter no. of integers You wanna Find : ";
+    std::cout << "Enter no. of Numbers You wanna Find : ";
 	std::cin >> solution.numFactors;
 
 	std::ifstream myFile("input.txt");
@@ -53,7 +53,7 @@ int main()
 	while (std::getline(myFile, numberString)) 
 	{
 		std::stringstream numberStream(numberString);
-		int number = 0;
+		long long number = 0;
 
 		numberStream >> number;
 
