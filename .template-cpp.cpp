@@ -11,7 +11,8 @@ int main()
 	
 	std::string lineFromFile;
 
-	while (std::getline(inputFile, lineFromFile)) {
+	while (std::getline(inputFile, lineFromFile))
+	{
 		std::cout << lineFromFile << std::endl;
 	}
 
